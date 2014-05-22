@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" >
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Comunidad Residentes</title>
+
+<link href="fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="estilos.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+         alert('Device is ready!');
+    }
+
+    </script>
+<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="scripts/funciones.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Barra superior con logos -->
+<div id="top">
+	<div class="container">
+    	<img src="images/topLogo.gif" class="logo">
+        <div class="right">
+        	<img src="images/topLogoMontpellier.gif">
+            <a href="#inline" class="modalbox" id="botonLogin"></a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Todo el Contenido -->
+<div id="principal">
+	<div class="container">
+    	
+        
+        <!-- Seccion Comunidad -->
+        <div class="seccion">
+	    	<div class="botonSeccion" data-seccion="#seccionComunidad"><div class="icono" style="background-image:url(images/botonSeccionIconoComunidad.png)"></div>Comunidad</div>
+            <div class="contenidoSeccion fondoPicoVerde" id="seccionComunidad">
+            	<div class="container">
+                	<img src="http://www.inversionesdevida.com/montpellier/images/fotoComunidad.jpg" id="fotoComunidad">
+                </div>
+            </div>
+		</div>
+        
+        
+        <!-- Seccion Facebook -->
+		<div class="seccion">
+			<div class="botonSeccion botonSeccion2" data-seccion="#seccionFacebook"><div class="icono" style=" background-image:url(images/botonSeccionIconoFacebook.png)"></div>Facebook</div>
+            <div class="contenidoSeccion fondoPicoCeleste" id="seccionFacebook">
+            	<div class="container">
+					<div class="fb-like-box" data-href="https://www.facebook.com/ComunidadResidentesArgentina" data-width="800" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
+                </div>
+            </div>
+		</div>
+        
+        
+        <!-- Seccion Twitter -->
+		<div class="seccion">
+			<div class="botonSeccion" data-seccion="#seccionTwitter"><div class="icono" style="background-image:url(images/botonSeccionIconoTwitter.png)"></div>Twitter</div>
+            <div class="contenidoSeccion fondoPicoVerde" id="seccionTwitter">
+            	<div class="container">
+            	<a class="twitter-timeline"  width="800" href="https://twitter.com/ResidentesArg" data-widget-id="467785476154200064" data-chrome="nofooter noborders transparent">Tweets por @ResidentesArg</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+            </div>
+		</div>
+        
+		
+        <!-- Seccion Proximos Eventos -->
+        <div class="seccion">
+			<div class="botonSeccion botonSeccion2" data-seccion="#seccionProximosEventos"><div class="icono" style="background-image:url(images/botonSeccionIconoProximosEventos.png)"></div>Próximos Eventos</div>
+            <div class="contenidoSeccion fondoPicoCeleste" id="seccionProximosEventos">
+            	<div class="container" id="eventos">
+ 
+                </div>
+            </div>
+		</div>
+        
+        
+        <!-- Seccion Invitar a la comunidad -->
+		<div class="seccion">
+	        <div class="botonSeccion" data-seccion="#seccionInvitar"><div class="icono" style="background-image:url(images/botonSeccionIconoInvitar.png)"></div>Invitar a la Comunidad</div>
+            <div class="contenidoSeccion fondoPicoVerde" id="seccionInvitar">
+            	<div class="container">
+                	<span id="txtRes"> </span>
+                    <div id="invitarForm">
+                    <form name="ajaxform" id="ajaxform" action="" method="POST">
+                    	<div class="tag">Nombre</div><input name="nombre" type="text" class="campo">
+                        <div class="tag">Apellido</div><input name="apellido" type="text" class="campo">
+                        <div class="tag">DNI</div><input name="dni" type="text" class="campo">
+                        <div class="tag">Email</div><input name="email" type="text" class="campo">
+                        <input name="invita" id="invita" type="hidden"/>
+                        <a href="#" id="botonEnviarInvitacion" class="botonGenericoVerde">Enviar Invitacion <img src="images/iconoFlechaDer.png"></a>
+					</form>
+                    </div>
+                                   	
+                </div>
+            </div>
+		</div>
+        
+    </div>
+</div>
+
+<!-- hidden inline form (Nombre invitacion)-->
+<div id="inline">
+		<form id="nameForm" method="post" action="">
+			<label>Nombre:</label>
+			<input type="text" name="name" id="name" class="campo" value="" />
+			 
+			<input type="submit" class="botonGenericoVerde" value="Ingresar" />
+		</form>
+</div>
+</body>
+</html>

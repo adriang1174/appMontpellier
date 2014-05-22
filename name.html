@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title>HTML5 localStorage Demo</title>
+
+<meta name="viewport" content="width=device-width"/> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Comunidad Residentes</title>
+
+<link href="fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="estilos.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="scripts/funciones.js"></script>
+</head>
+<body>
+<div id="wrap">
+<section id="demo">
+<div id="influads_block" class="influads_block"> </div>
+   
+		<h1>Por favor complete su nombre para el envío de invitaciones</h1>
+		<form id="localStorageTest" method="post" action="">
+			<label>Nombre:</label>
+			<input type="text" name="name" id="name" class="campo" value="" />
+			 
+			<input type="submit" class="botonGenericoVerde" value="Ingresar" />
+		</form>
+</section>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+    function init() {
+        if (localStorage["name"]) {
+            $('#name').val(localStorage["name"]);
+        }
+    }
+	init();
+});
+
+$('#localStorageTest').submit(function() {
+	localStorage["name"] = $('#name').val();
+});
+</script>
+</body>
+</html>
