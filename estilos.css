@@ -269,20 +269,18 @@ strong {
 	text-align:right;
 }
 #invitarForm .tag {
-	display:inline-block;
+	display:block;
 	vertical-align:middle;
 	font-size:1.5em;
-	text-align:right;
-	width:15%;
-	margin-right:5%;
+	text-align: left;
 	margin-bottom:10px;
 }
 #invitarForm .campo {
-	display:inline-block;
+	display:block;
 	vertical-align:middle;
 	font-size:1.5em;
 	padding:8px 15px;
-	width:75%;
+	width:95%;
 	margin-bottom:10px;
 	background:#e6e6e6;
 	border:none;
