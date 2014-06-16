@@ -16,7 +16,9 @@
     <author href="http://www.globaldardos.com" email="sac@globaldardos.com">
         Globaldardos 
     </author>
-
+	<!-- PG version -->
+	<preference name="phonegap-version" value="3.1.0" />
+	
 	<icon src="icon.png" gap:role="default"/>
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/dpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/mdpi.png" />
