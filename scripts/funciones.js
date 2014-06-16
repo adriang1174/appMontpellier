@@ -34,7 +34,7 @@ $(document).ready(function () {
 			$( seccion ).css( "height", altoNuevo );
 			if(seccion=="#seccionFacebook")
 			{
-			   $('#seccionFacebook' ).css( "height", "300px" );
+			   //$('#seccionFacebook' ).css( "height", "300px" );
 			}
 		}
 	});

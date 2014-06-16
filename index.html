@@ -87,7 +87,7 @@
 			<div class="botonSeccion botonSeccion2" data-seccion="#seccionFacebook"><div class="icono" style=" background-image:url(images/botonSeccionIconoFacebook.png)"></div>Facebook</div>
             <div class="contenidoSeccion fondoPicoCeleste" id="seccionFacebook">
             	<div class="container">
-					<div class="fb-like-box" data-href="https://www.facebook.com/ComunidadResidentesArgentina" data-width="800" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
+					<div class="fb-like-box" data-href="https://www.facebook.com/ComunidadResidentesArgentina" data-width="750" data-height="800"  data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" ></div>
                 </div>
             </div>
 		</div>
@@ -122,6 +122,7 @@
             <div class="contenidoSeccion fondoPicoVerde" id="seccionInvitar">
             	<div class="container">
                 	<span id="txtRes"> </span>
+                    <div class="textoGenerico" >Completar los siguientes datos para invitar a un contacto a ser parte de nuestra comunidad. Recibirá una invitación vía email que deberá aceptar para confirmar su suscripción.</div>
                     <div id="invitarForm">
                     <form name="ajaxform" id="ajaxform" action="" method="POST">
                     	<div class="tag">Nombre</div><input name="nombre" type="text" class="campo">
@@ -143,8 +144,8 @@
 <!-- hidden inline form (Nombre invitacion)-->
 <div id="inline">
 		<form id="nameForm" method="post" action="">
-			<label>Nombre:</label>
-			<input type="text" name="name" id="name" class="campo" value="" />
+			<label>Ingrese su nombre:</label>
+			<input type="text" name="name" id="name" class="campo" value="" style="width:auto" />
 			 
 			<input type="submit" class="botonGenericoVerde" value="Ingresar" />
 		</form>

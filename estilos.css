@@ -248,13 +248,14 @@ strong {
 	margin-bottom:20px;
 }
 
-.fb-like-box iframe {
-    width: 800px !important;
-    height: 300px !important;
+.fb-like-box {
+	height:500px;
+	margin-bottom:20px;
 }
 
-#inline { display: none; 
-
+#inline {
+	display: none;
+	text-align:center;
 }
 
 #txtRes{
@@ -268,21 +269,19 @@ strong {
 #invitarForm {
 	text-align:right;
 }
-#invitarForm .tag {
-	display:inline-block;
+.tag, label {
+	display:block;
 	vertical-align:middle;
 	font-size:1.5em;
-	text-align:right;
-	width:15%;
-	margin-right:5%;
+	text-align: left;
 	margin-bottom:10px;
 }
-#invitarForm .campo {
-	display:inline-block;
+.campo {
+	display:block;
 	vertical-align:middle;
 	font-size:1.5em;
 	padding:8px 15px;
-	width:75%;
+	width:95%;
 	margin-bottom:10px;
 	background:#e6e6e6;
 	border:none;
@@ -297,4 +296,13 @@ strong {
 #invitarForm #botonEnviarInvitacion img {
 	margin-right:0px;
 	margin-left:10px;
+}
+
+.textoGenerico {
+	font-size:1.3em;
+	margin-bottom:20px;
+}
+
+input {
+	border:none;
 }
