@@ -9,7 +9,14 @@ $(document).ready(function () {
 
 	$( ".contenidoSeccion" ).css( "height", "0" );	
 	
-	$(".botonSeccion").click(function() {
+	
+	altoRedes=$( window ).height()-150;
+	$('#seccionFacebook .container').html('<iframe src="http://www.facebook.com/plugins/likebox.php?href=http://www.facebook.com/ComunidadResidentesArgentina&amp;stream=true&show_faces=false&show_border=false&header=false&height='+altoRedes+'" scrolling="no" frameborder="0" allowTransparency="true" height="'+altoRedes+'"></iframe>');
+
+	$('#seccionTwitter .container').html('<a class="twitter-timeline" href="https://twitter.com/ResidentesArg" height="'+altoRedes+'" data-widget-id="467785476154200064" data-chrome="nofooter noborders transparent">Tweets por @ResidentesArg</a>');
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+	$( document ).on( "vmousedown", ".botonSeccion", function() {
 		seccion=$(this).data( "seccion" );
 		
 		//Cambiamos el alto dinamicamente
@@ -20,24 +27,25 @@ $(document).ready(function () {
 		//Abre o cierra la sección
 		if($( seccion ).css( "height")!="0px")
 		{   //Cierra
-		     $( seccion ).css( "height", "0" );
+		     $( seccion ).css( "height", "0px" );
 		}
 		else
 		{	
 			//Abre
 			//Buscamos data de la sección (solo cuando abre)
-			if(seccion=="#seccionProximosEventos")
-			{
+			
+			if(seccion=="#seccionProximosEventos") {
 				getEvents();
 			}	
 			altoNuevo=$( seccion+" .container").outerHeight()+"px";
 			$( seccion ).css( "height", altoNuevo );
-			if(seccion=="#seccionFacebook")
-			{
-			   //$('#seccionFacebook' ).css( "height", "300px" );
-			}
 		}
 	});
+	
+	$( document ).on( "vmousedown", ".botonSeccion", function() {		$( ".botonSeccion" ).removeClass( "botonSeccionHover" ); $( ".botonSeccion2" ).removeClass( "botonSeccion2Hover" ); $( this ).addClass( "botonSeccionHover" );	});
+	$( document ).on( "vmouseup", ".botonSeccion", function() {		$( this ).removeClass( "botonSeccionHover" );	});
+	$( document ).on( "vmousedown", ".botonSeccion2", function() {	$( ".botonSeccion" ).removeClass( "botonSeccionHover" ); $( ".botonSeccion2" ).removeClass( "botonSeccion2Hover" ); $( this ).addClass( "botonSeccion2Hover" );	});
+	$( document ).on( "vmouseup", ".botonSeccion2", function() {		$( this ).removeClass( "botonSeccion2Hover" );	});
 	
 	$("#botonEnviarInvitacion").click(function() {
 		   

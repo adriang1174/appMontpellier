@@ -4,6 +4,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no" />
 
 <title>Comunidad Residentes</title>
 
@@ -15,16 +16,18 @@
 
     // Wait for Cordova to load
     //
-    document.addEventListener("deviceready", onDeviceReady, false);
+    //document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
-    function onDeviceReady() {
+    /*function onDeviceReady() {
          alert('Device is ready!');
-    }
+    }*/
 
     </script>
+    
 <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.mobile.custom.min.js"></script>
 <script type="text/javascript" src="scripts/funciones.js"></script>
 
 	<!-- Add fancyBox main JS and CSS files -->
@@ -44,7 +47,7 @@
 
 </head>
 
-<body>
+<body ontouchstart="">
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -76,7 +79,7 @@
 	    	<div class="botonSeccion" data-seccion="#seccionComunidad"><div class="icono" style="background-image:url(images/botonSeccionIconoComunidad.png)"></div>Comunidad</div>
             <div class="contenidoSeccion fondoPicoVerde" id="seccionComunidad">
             	<div class="container">
-                	<img src="http://www.inversionesdevida.com/montpellier/images/fotoComunidad.jpg" id="fotoComunidad">
+                	<img src="http://www.comunidadresidentes.com.ar/appmontpellier/images/fotoComunidad.jpg" id="fotoComunidad">
                 </div>
             </div>
 		</div>
@@ -87,7 +90,7 @@
 			<div class="botonSeccion botonSeccion2" data-seccion="#seccionFacebook"><div class="icono" style=" background-image:url(images/botonSeccionIconoFacebook.png)"></div>Facebook</div>
             <div class="contenidoSeccion fondoPicoCeleste" id="seccionFacebook">
             	<div class="container">
-					<div class="fb-like-box" data-href="https://www.facebook.com/ComunidadResidentesArgentina" data-width="750" data-height="800"  data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" ></div>
+                	<!--<div class="fb-like-box" data-href="https://www.facebook.com/ComunidadResidentesArgentina" data-width="750" data-height="800"  data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" ></div>-->
                 </div>
             </div>
 		</div>
@@ -98,8 +101,7 @@
 			<div class="botonSeccion" data-seccion="#seccionTwitter"><div class="icono" style="background-image:url(images/botonSeccionIconoTwitter.png)"></div>Twitter</div>
             <div class="contenidoSeccion fondoPicoVerde" id="seccionTwitter">
             	<div class="container">
-            	<a class="twitter-timeline"  width="800" href="https://twitter.com/ResidentesArg" data-widget-id="467785476154200064" data-chrome="nofooter noborders transparent">Tweets por @ResidentesArg</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            	
                 </div>
             </div>
 		</div>
