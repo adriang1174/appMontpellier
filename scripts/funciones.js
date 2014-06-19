@@ -13,7 +13,7 @@ $(document).ready(function () {
 	altoRedes=$( window ).height()-150;
 	$('#seccionFacebook .container').html('<iframe src="http://www.facebook.com/plugins/likebox.php?href=http://www.facebook.com/ComunidadResidentesArgentina&amp;stream=true&show_faces=false&show_border=false&header=false&height='+altoRedes+'" scrolling="no" frameborder="0" allowTransparency="true" height="'+altoRedes+'"></iframe>');
 
-	$('#seccionTwitter .container').html('<a class="twitter-timeline" href="https://twitter.com/ResidentesArg" height="'+altoRedes+'" data-widget-id="467785476154200064" data-chrome="nofooter noborders transparent">Tweets por @ResidentesArg</a>');
+	$('#seccionTwitter .container').html('<a class="twitter-timeline" href="https://twitter.com/ResidentesArg" data-tweet-limit="7" height="'+altoRedes+'" data-widget-id="467785476154200064" data-chrome="nofooter noborders transparent">Tweets por @ResidentesArg</a>');
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
 	$( document ).on( "vmousedown", ".botonSeccion", function() {
@@ -53,12 +53,12 @@ $(document).ready(function () {
 		   var postData = $('#ajaxform').serializeArray();
 		   $.ajax({
 				 type: "POST",
-				 url: 'http://www.inversionesdevida.com/montpellier/invita.php',
+				 url: 'http://www.comunidadresidentes.com.ar/appmontpellier/invita.php',
 				 data : postData,
 				 dataType: "html",
 				 success: function(data) {
 					   // data is ur summary
-					   alert(data);
+					   //alert(data);
 					   if(data != "OK")
 					   {
 					         $('#txtRes').html("Se ha producido un error al enviar la invitación. Intente más tarde");
@@ -87,11 +87,11 @@ function getEvents()
    $.ajax({
 
      type: "GET",
-     url: 'http://www.inversionesdevida.com/montpellier/eventos.html',
+     url: 'http:/www.comunidadresidentes.com.ar/appmontpellier/eventos.html',
      dataType: "html",
      success: function(data) {
            // data is ur summary
-		   //alert(data);
+		   alert(data);
           $('#eventos').html(data);
 		  altoNuevo=$( '#eventos').outerHeight()+"px";
 		  $( '#seccionProximosEventos' ).css( "height", altoNuevo );

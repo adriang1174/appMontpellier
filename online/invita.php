@@ -44,11 +44,13 @@
 								$mail->Subject = "Invitación a Comunidad Residentes";
 								// Retrieve the email template required 
 								// Acá va el template adecuado
-								$message = file_get_contents('http://www.comunidadresidentes.com.ar/mailing/confirmacion/index.html'); 
-								$nombre = $_POST["nombre"].":".$_POST["apellido"].":".$_POST["dni"].":".$_POST["email"].":".$_POST["invita"];
+								$message = file_get_contents('http://www.comunidadresidentes.com.ar/mailing/invitacionApp/invitacionApp.html'); 
+								$invita = $_POST["invita"];
+								$nombre = $_POST["nombre"]." ".$_POST["apellido"];
 							
 								// Replace the % with the actual information 
 								$message = str_replace('%nombre%', $nombre, $message); 
+								$message = str_replace('%invita%', $invita, $message);
 								//Set the message 
 								$mail->Body = $message; 
 								//$mail->AltBody(strip_tags($message)); 
