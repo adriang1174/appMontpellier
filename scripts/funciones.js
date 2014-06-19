@@ -91,7 +91,7 @@ function getEvents()
      dataType: "html",
      success: function(data) {
            // data is ur summary
-		   alert(data);
+		   //alert(data);
           $('#eventos').html(data);
 		  altoNuevo=$( '#eventos').outerHeight()+"px";
 		  $( '#seccionProximosEventos' ).css( "height", altoNuevo );
