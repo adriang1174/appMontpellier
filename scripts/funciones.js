@@ -1,5 +1,6 @@
-$(document).ready(function () {
 
+$(document).ready(function () {
+	
 	if (localStorage["name"]) {
 		$('#name').val(localStorage["name"]);
 	}
@@ -9,6 +10,9 @@ $(document).ready(function () {
 
 	$( ".contenidoSeccion" ).css( "height", "0" );	
 	
+	for (var i = 0; i < $( ".contenidoSeccion" ).length; i++) {
+		$( ".contenidoSeccion:eq("+i+")" ).data("posicion",  $(".botonSeccion:eq("+i+")").position().top);
+	}
 	
 	altoRedes=$( window ).height()-150;
 	$('#seccionFacebook .container').html('<iframe src="http://www.facebook.com/plugins/likebox.php?href=http://www.facebook.com/ComunidadResidentesArgentina&amp;stream=true&show_faces=false&show_border=false&header=false&height='+altoRedes+'" scrolling="no" frameborder="0" allowTransparency="true" height="'+altoRedes+'"></iframe>');
@@ -40,6 +44,8 @@ $(document).ready(function () {
 				altoNuevo=$( seccion+" .container").outerHeight()+"px";
 				$( seccion ).css( "height", altoNuevo );
 			}
+			$('html, body').animate({scrollTop:$( seccion).data("posicion")+150}, 300);
+			
 			
 		}
 	});
