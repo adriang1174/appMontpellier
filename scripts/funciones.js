@@ -56,29 +56,38 @@ $(document).ready(function () {
 	$( document ).on( "vmouseup", ".botonSeccion2", function() {		$( this ).removeClass( "botonSeccion2Hover" );	});
 	
 	$("#botonEnviarInvitacion").click(function() {
-		   
-		   $('#invita').val(localStorage["name"]);
-		   var postData = $('#ajaxform').serializeArray();
-		   $.ajax({
-				 type: "POST",
-				 url: 'http://www.comunidadresidentes.com.ar/appmontpellier/invita.php',
-				 data : postData,
-				 dataType: "html",
-				 success: function(data) {
-					   // data is ur summary
-					   //alert(data);
-					   if(data != "OK")
-					   {
-					         $('#txtRes').html("Se ha producido un error al enviar la invitación. Intente más tarde");
-					   }
-					   else
-					   {
-					         $('#txtRes').html("Se ha enviado la invitación exitosamente");
-					         $('#ajaxform').clear();
-					   }
-					   
- 				 }
-			   });
+		   hayCamposEnBlanco=false;
+			for (var i = 0; i < $( ".campo" ).length-1; i++) {
+				if ( $( ".campo:eq("+i+")" ).val() == "" ) {
+					hayCamposEnBlanco=true;
+				};
+			}
+			if (hayCamposEnBlanco) {
+				alert("Por favor complete todos los campos para enviar el formulario");
+			} else {
+				$('#invita').val(localStorage["name"]);
+				var postData = $('#ajaxform').serializeArray();
+				$.ajax({
+					 type: "POST",
+					 url: 'http://www.comunidadresidentes.com.ar/appmontpellier/invita.php',
+					 data : postData,
+					 dataType: "html",
+					 success: function(data) {
+						if(data != "OK") {
+							alert("Se ha producido un error al enviar la invitación. Intente más tarde");
+							//$('#txtRes').html("Se ha producido un error al enviar la invitación. Intente más tarde");
+						}
+						else {
+							alert("Se ha enviado la invitación exitosamente"); $('.campo').val("");
+							//$('#txtRes').html("Se ha enviado la invitación exitosamente");
+							$('#ajaxform').clear();
+						}
+					},
+					error: function(xhr, error){
+						 alert("Se ha producido un error al enviar la invitación. Intente más tarde");
+				}
+				});
+			}
 	});	
 	
 	$('#nameForm').submit(function() {
@@ -97,9 +106,9 @@ $(document).ready(function () {
 	$( document ).on( "vclick", ".botonMasInfo a", function() {
 		eventoNum=$(this).data("evento");
 		$( "#proximosEventos" ).css({
-			'transform':'translate(-500px,0)',
-			'-moz-transform': 'translate(-500px,0)',
-			'-webkit-transform': 'translate(-500px,0)',
+			'transform':'scale(0)',
+			'-moz-transform': 'scale(0)',
+			'-webkit-transform': 'scale(0)',
 		});
 		$( "#proximosEventos" ).css({
 			'opacity':'0'
@@ -111,29 +120,29 @@ $(document).ready(function () {
 			'display':'block'
 		});
 		$( ".eventoMasInfo:eq("+eventoNum+")" ).css({
-			'transform':'translate(0px,0)',
-			'-moz-transform': 'translate(0px,0)',
-			'-webkit-transform': 'translate(0px,0)',
+			'transform':'scale(1)',
+			'-moz-transform': 'scale(1)',
+			'-webkit-transform': 'scale(1)',
 		});
 		$( ".eventoMasInfo:eq("+eventoNum+")" ).css({
 			'opacity':'1'
 		});
-		$( '#seccionProximosEventos .container' ).scrollTop( 0 );
+		$( '#seccionProximosEventos .container').scrollTop( 0 );
 	});
 	
 	$( document ).on( "vclick", ".botonVolver a", function() {
 		$( ".eventoMasInfo" ).css({
-			'transform':'translate(500px,0)',
-			'-moz-transform': 'translate(500px,0)',
-			'-webkit-transform': 'translate(500px,0)',
+			'transform':'scale(0)',
+			'-moz-transform': 'scale(0)',
+			'-webkit-transform': 'scale(0)',
 		});
 		$( ".eventoMasInfo" ).css({
 			'opacity':'0'
 		});
 		$( "#proximosEventos" ).css({
-			'transform':'translate(0,0)',
-			'-moz-transform': 'translate(0,0)',
-			'-webkit-transform': 'translate(0,0)',
+			'transform':'scale(1)',
+			'-moz-transform': 'scale(1)',
+			'-webkit-transform': 'scale(1)',
 		});
 		$( "#proximosEventos" ).css({
 			'opacity':'1'
@@ -153,11 +162,19 @@ function getEvents()
 		dataType: "html",
 		success: function(data) {
 			// data is ur summary
+			localStorage["eventos"] = data; //Me guardo el html por si pierde conectividad
 			$('#eventos').html(data);
 			altoNuevo=$( window ).height()-150;
 			$( '#seccionProximosEventos' ).css( "height", altoNuevo+"px" );
 			$( '#seccionProximosEventos .container' ).css( "height", altoNuevo-100+"px" );
 			$( '#seccionProximosEventos .container' ).scrollTop( 0 );
-		}
+		},
+		error: function(xhr, error){
+            $('#eventos').html(localStorage["eventos"]);
+   			altoNuevo=$( window ).height()-150;
+			$( '#seccionProximosEventos' ).css( "height", altoNuevo+"px" );
+			$( '#seccionProximosEventos .container' ).css( "height", altoNuevo-100+"px" );
+			$( '#seccionProximosEventos .container' ).scrollTop( 0 );
+ 		}
 	});
 }
